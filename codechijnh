@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eden - Honkai Impact 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Character introduction for Eden from Honkai Impact 3 - The Elegant Musician of the Thirteen Flame-Chasers">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #D495FF;
+      --accent-color: #FFD700;
+      --dark-color: #1A1A2E;
+      --light-color: #F8F8FF;
+      --glass-bg: rgba(30, 30, 60, 0.7);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--light-color);
+      background-color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .bg-glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .text-primary {
+      color: var(--primary-color);
+    }
+    
+    .text-accent {
+      color: var(--accent-color);
+    }
+    
+    /* Header Styles */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+      background: var(--glass-bg);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      display: none;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+    
+    .nav-links a {
+      color: var(--light-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-btn {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      border-radius: 0.375rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .nav-btn:hover {
+      background-color: var(--accent-color);
+    }
+    
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      color: var(--light-color);
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      padding-top: 120px;
+      padding-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at center, rgba(212, 149, 255, 0.2) 0%, rgba(26, 26, 46, 0.8) 70%);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(to bottom, transparent, var(--dark-color));
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(212, 149, 255, 0.7);
+    }
+    
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--glass-bg);
+      border-radius: 9999px;
+    }
+    
+    .badge-icon {
+      margin-right: 0.5rem;
+    }
+    
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--accent-color);
+    }
+    
+    .btn-outline {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: all 0.3s;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .eden-symbol {
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .hero-glow {
+      box-shadow: 0 0 20px rgba(212, 149, 255, 0.7);
+      border-radius: 0.5rem;
+    }
+    
+    /* About Section */
+    .section {
+      padding: 64px 0;
+      position: relative;
+    }
+    
+    .section-dark {
+      background-color: rgba(26, 26, 46, 0.5);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-divider {
+      width: 6rem;
+      height: 0.25rem;
+      background-color: var(--accent-color);
+      margin: 0 auto 1.5rem;
+    }
+    
+    .section-desc {
+      max-width: 48rem;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      opacity: 0.8;
+    }
+    
+    .card {
+      background: var(--glass-bg);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    
+    .card:hover {
+      box-shadow: 0 10px 20px rgba(94, 47, 137, 0.3);
+    }
+    
+    .card-content {
+      padding: 2rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 768px) {
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .trait {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+    
+    .trait-icon {
+      color: var(--accent-color);
+      margin-right: 1rem;
+      margin-top: 0.25rem;
+    }
+    
+    .trait-content h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .trait-content p {
+      opacity: 0.8;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .info-item {
+      text-align: center;
+    }
+    
+    .info-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: rgba(212, 149, 255, 0.2);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    
+    .info-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-value {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    
+    /* Skills Section */
+    .skill-card {
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill-header {
+      height: 10rem;
+      background-color: rgba(212, 149, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: rgba(212, 149, 255, 0.3);
+    }
+    
+    .skill-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-image: linear-gradient(to top, var(--dark-color), transparent);
+    }
+    
+    .skill-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    
+    .skill-type {
+      font-size: 0.75rem;
+      color: var(--accent-color);
+    }
+    
+    .skill-cooldown {
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(212, 149, 255, 0.2);
+      color: var(--primary-color);
+      font-size: 0.875rem;
+      border-radius: 9999px;
+    }
+    
+    .ultimate-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .ultimate-grid {
+        grid-template-columns: 1fr 2fr;
+      }
+    }
+    
+    .ultimate-visualization {
+      height: 100%;
+      background-color: rgba(212, 149, 255, 0.1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    
+    .ultimate-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .ultimate-details {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .detail-item {
+      background-color: rgba(212, 149, 255, 0.1);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+    }
+    
+    .detail-label {
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .gallery-item {
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(212, 149, 255, 0.8);
+    }
+    
+    .gallery-content {
+      position: relative;
+      aspect-ratio: 4/5;
+    }
+    
+    .gallery-pattern {
+      position: absolute;
+      inset: 0;
+    }
+    
+    .gallery-info {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(to top, rgba(26, 26, 46, 0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+    }
+    
+    .gallery-text {
+      padding: 1rem;
+      width: 100%;
+    }
+    
+    .gallery-title {
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+    
+    .gallery-desc {
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+    
+    .gallery-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--glass-bg);
+      border-radius: 0.375rem;
+      color: var(--light-color);
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-top: 2.5rem;
+    }
+    
+    .gallery-link:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+    }
+    
+    /* Relationships Section */
+    .relationship-card {
+      height: 100%;
+      transition: all 0.3s;
+    }
+    
+    .relationship-card:hover {
+      box-shadow: 0 10px 20px rgba(94, 47, 137, 0.3);
+    }
+    
+    .relationship-header {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(212, 149, 255, 0.2);
+    }
+    
+    .avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 9999px;
+      background-color: rgba(212, 149, 255, 0.4);
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .relationship-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .relationship-type {
+      color: var(--accent-color);
+    }
+    
+    .relationship-secondary {
+      margin-top: 3rem;
+    }
+    
+    .secondary-card {
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .secondary-card:hover {
+      box-shadow: 0 10px 20px rgba(94, 47, 137, 0.3);
+    }
+    
+    .secondary-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .secondary-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background-color: rgba(212, 149, 255, 0.4);
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-right: 0.75rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 0;
+      position: relative;
+    }
+    
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(212, 149, 255, 0.05);
+    }
+    
+    .cta-card {
+      text-align: center;
+      padding: 2rem 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .cta-card {
+        padding: 3rem;
+      }
+    }
+    
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .cta-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .cta-text {
+      max-width: 48rem;
+      margin: 0 auto 2rem;
+      font-size: 1.125rem;
+      opacity: 0.9;
+    }
+    
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-btn:hover {
+      background-color: var(--accent-color);
+    }
+    
+    .cta-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .cta-links {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .cta-link {
+      background: var(--glass-bg);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--light-color);
+      transition: background-color 0.3s;
+    }
+    
+    .cta-link:hover {
+      background-color: rgba(212, 149, 255, 0.2);
+    }
+    
+    .cta-link-icon {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .cta-link-text {
+      font-weight: 600;
+    }
+    
+    /* Footer Styles */
+    .footer {
+      background-color: var(--dark-color);
+      border-top: 1px solid rgba(212, 149, 255, 0.2);
+      padding: 3rem 0 2rem;
+    }
+    
+    .footer-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-main {
+        flex-direction: row;
+      }
+    }
+    
+    .footer-info {
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-info {
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-desc {
+      opacity: 0.6;
+      max-width: 20rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--glass-bg);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-color);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(212, 149, 255, 0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+      }
+    }
+    
+    .copyright {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+    
+    @media (min-width: 768px) {
+      .copyright {
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+    
+    .footer-link {
+      color: var(--light-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-link:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: var(--glass-bg);
+      z-index: 40;
+      padding: 1rem 0;
+    }
+    
+    .mobile-menu.open {
+      display: block;
+    }
+    
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+    
+    .mobile-nav-link {
+      color: var(--light-color);
+      text-decoration: none;
+      padding: 0.75rem 0;
+      transition: color 0.3s;
+    }
+    
+    .mobile-nav-link:hover {
+      color: var(--primary-color);
+    }
+    
+    .mobile-nav-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.5rem;
+      padding: 0.75rem 0;
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s;
+    }
+    
+    .mobile-nav-btn:hover {
+      background-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <a href="#" class="logo">
+          <span class="logo-text">
+            <span class="text-primary">Honkai</span><span class="text-accent">Impact 3</span>
+          </span>
+        </a>
+        
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#relationships">Relationships</a>
+          <a href="https://honkaiimpact3.hoyoverse.com/" target="_blank" rel="noopener noreferrer" class="nav-btn">Official Site</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Skills</a>
+        <a href="#gallery" class="mobile-nav-link">Gallery</a>
+        <a href="#relationships" class="mobile-nav-link">Relationships</a>
+        <a href="https://honkaiimpact3.hoyoverse.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-btn">Official Site</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="text-primary">Eden</span>
+            <span class="text-accent"> - GOLD</span>
+          </h1>
+          <p class="hero-subtitle">The Elegant Musician of the Thirteen Flame-Chasers</p>
+          
+          <div class="badge-container">
+            <div class="badge text-primary">
+              <span class="badge-icon">♪</span> Musician
+            </div>
+            <div class="badge text-accent">
+              <span class="badge-icon">⚡</span> Lightning Element
+            </div>
+            <div class="badge">
+              <span class="badge-icon">👥</span> Flame-Chaser
+            </div>
+          </div>
+          
+          <div class="btn-container">
+            <a href="#about" class="btn-primary">Discover Eden</a>
+            <a href="#skills" class="btn-outline">See Skills</a>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <div class="eden-symbol">
+            <svg 
+              width="450" 
+              height="500" 
+              viewBox="0 0 450 500" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              class="hero-glow"
+            >
+              <rect width="450" height="500" rx="8" fill="#1A1A2E" />
+              <path d="M225 125C175.5 125 135 165.5 135 215C135 264.5 175.5 305 225 305C274.5 305 315 264.5 315 215C315 165.5 274.5 125 225 125ZM225 275C192.5 275 165 247.5 165 215C165 182.5 192.5 155 225 155C257.5 155 285 182.5 285 215C285 247.5 257.5 275 225 275ZM225 175C203.5 175 185 193.5 185 215C185 236.5 203.5 255 225 255C246.5 255 265 236.5 265 215C265 193.5 246.5 175 225 175Z" fill="#D495FF" />
+              <path d="M225 350L185 310H265L225 350Z" fill="#D495FF" />
+              <path d="M310 215L350 175V255L310 215Z" fill="#D495FF" />
+              <path d="M140 215L100 255V175L140 215Z" fill="#D495FF" />
+              <path d="M225 80L265 120H185L225 80Z" fill="#D495FF" />
+              <circle cx="225" cy="215" r="15" fill="#FFD700" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="text-primary">About</span> Eden</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          A sophisticated musician and one of the legendary Thirteen Flame-Chasers, Eden brings elegance and harmony to the battlefield.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 grid-cols-2">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Character Story</h3>
+            <p class="mb-4 opacity-90">
+              Eden, codenamed "Gold," is one of the legendary Flame-Chasers from the Previous Era. As a refined musician with exceptional talent, Eden was known for her soothing melodies that could calm even the most agitated hearts.
+            </p>
+            <p class="mb-4 opacity-90">
+              Before joining the MOTH organization in the fight against the Honkai, Eden was a famous musician renowned throughout the world. Her performances were sold out and her compositions touched millions.
+            </p>
+            <p class="mb-4 opacity-90">
+              When the Honkai catastrophe struck, Eden put aside her musical career and joined the Flame-Chasers, where she formed close bonds with her comrades, particularly with Elysia and Mobius.
+            </p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title">Personality</h3>
+            <div>
+              <div class="trait">
+                <div class="trait-icon">💎</div>
+                <div class="trait-content">
+                  <h4>Elegant & Sophisticated</h4>
+                  <p>Eden carries herself with grace and refinement, always composed even in dire situations.</p>
+                </div>
+              </div>
+              
+              <div class="trait">
+                <div class="trait-icon">❤️</div>
+                <div class="trait-content">
+                  <h4>Generous & Caring</h4>
+                  <p>Known for her generosity and kindness, Eden often supported her comrades both emotionally and financially.</p>
+                </div>
+              </div>
+              
+              <div class="trait">
+                <div class="trait-icon">♪</div>
+                <div class="trait-content">
+                  <h4>Artistic Soul</h4>
+                  <p>With a deep appreciation for beauty and art, Eden sees the world through a musical lens.</p>
+                </div>
+              </div>
+              
+              <div class="trait">
+                <div class="trait-icon">⚡</div>
+                <div class="trait-content">
+                  <h4>Determined Fighter</h4>
+                  <p>Despite her elegant appearance, Eden is a formidable warrior with unwavering resolve in battle.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" style="margin-top: 4rem;">
+        <div class="card-content">
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-icon">
+                <span style="font-size: 1.5rem;">🆔</span>
+              </div>
+              <h4 class="info-title">Codename</h4>
+              <p class="info-value">GOLD</p>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <span style="font-size: 1.5rem;">⚡</span>
+              </div>
+              <h4 class="info-title">Element</h4>
+              <p class="info-value">Lightning</p>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <span style="font-size: 1.5rem;">👥</span>
+              </div>
+              <h4 class="info-title">Affiliation</h4>
+              <p class="info-value">Flame-Chasers, MOTH</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="text-primary">Skills</span> & Abilities</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          As the elegant "Gold" of the Flame-Chasers, Eden wields powerful lightning abilities and stunning musical attacks.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 grid-cols-3">
+        <!-- Skill 1 -->
+        <div class="skill-card card">
+          <div class="skill-header">
+            <div class="skill-icon">♪</div>
+            <div class="skill-name">
+              <h3 class="text-primary font-orbitron font-bold">Golden Rhapsody</h3>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="opacity-90 mb-4">
+              Eden channels her musical energy into a stunning lightning performance, dealing massive AoE Lightning DMG to enemies.
+            </p>
+            <div class="skill-footer">
+              <span class="skill-type">SIGNATURE SKILL</span>
+              <span class="skill-cooldown">15s Cooldown</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill 2 -->
+        <div class="skill-card card">
+          <div class="skill-header">
+            <div class="skill-icon">⚡</div>
+            <div class="skill-name">
+              <h3 class="text-primary font-orbitron font-bold">Resonant Crescendo</h3>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="opacity-90 mb-4">
+              Eden creates a field of resonant lightning energy that continuously damages enemies while providing SP regeneration to allies.
+            </p>
+            <div class="skill-footer">
+              <span class="skill-type">SUPPORT SKILL</span>
+              <span class="skill-cooldown">20s Duration</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill 3 -->
+        <div class="skill-card card">
+          <div class="skill-header">
+            <div class="skill-icon">🛡️</div>
+            <div class="skill-name">
+              <h3 class="text-primary font-orbitron font-bold">Gilded Protection</h3>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="opacity-90 mb-4">
+              Eden creates a golden barrier around allies, absorbing damage and converting it to SP when the shield breaks.
+            </p>
+            <div class="skill-footer">
+              <span class="skill-type">DEFENSIVE SKILL</span>
+              <span class="skill-cooldown">25s Cooldown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ultimate Skill -->
+      <div class="card" style="margin-top: 4rem;">
+        <div class="card-content">
+          <h3 class="card-title">Ultimate Skill: Symphony of Gold</h3>
+          
+          <div class="ultimate-grid">
+            <div class="ultimate-visualization">
+              <svg 
+                width="200" 
+                height="200" 
+                viewBox="0 0 200 200" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-full h-auto"
+              >
+                <circle cx="100" cy="100" r="90" stroke="#D495FF" strokeWidth="2" strokeDasharray="10 5" />
+                <circle cx="100" cy="100" r="70" fill="#D495FF" fillOpacity="0.1" />
+                <path d="M100 50V150" stroke="#D495FF" strokeWidth="4" />
+                <path d="M50 100H150" stroke="#D495FF" strokeWidth="4" />
+                <path d="M70 70L130 130" stroke="#D495FF" strokeWidth="4" />
+                <path d="M130 70L70 130" stroke="#D495FF" strokeWidth="4" />
+                <circle cx="100" cy="100" r="20" fill="#FFD700" />
+                <circle cx="100" cy="100" r="10" fill="#D495FF" />
+                <path d="M170 100C170 138.66 138.66 170 100 170C61.34 170 30 138.66 30 100C30 61.34 61.34 30 100 30C138.66 30 170 61.34 170 100Z" stroke="#FFD700" strokeWidth="2" strokeDasharray="5 5" />
+              </svg>
+            </div>
+            
+            <div>
+              <p class="mb-4 opacity-90">
+                Eden summons a magnificent golden stage adorned with lightning. As she performs an enchanting melody, waves of musical notes transform into lightning bolts, striking all enemies on the battlefield.
+              </p>
+              <p class="mb-4 opacity-90">
+                During this ultimate state, Eden gains increased Lightning DMG, SP regeneration, and grants all allies a Lightning DMG buff. The finale of her performance releases a massive lightning strike that deals massive AoE damage.
+              </p>
+              
+              <div class="ultimate-details">
+                <div class="detail-item">
+                  <div class="detail-label">DMG Type</div>
+                  <div>Lightning</div>
+                </div>
+                <div class="detail-item">
+                  <div class="detail-label">Duration</div>
+                  <div>15 seconds</div>
+                </div>
+                <div class="detail-item">
+                  <div class="detail-label">Cooldown</div>
+                  <div>30 seconds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="text-primary">Character</span> Gallery</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Explore stunning visuals of Eden from Honkai Impact 3.
+        </p>
+      </div>
+      
+      <div class="gallery-grid">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item card">
+          <div class="gallery-content">
+            <div class="gallery-pattern">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <defs>
+                  <pattern id="pattern1" patternUnits="userSpaceOnUse" width="20" height="20">
+                    <path d="M10 0L20 10L10 20L0 10L10 0Z" fill="#D495FF" fillOpacity="0.3" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern1)" />
+                <circle cx="50" cy="50" r="30" fill="#D495FF" fillOpacity="0.2" />
+                <circle cx="50" cy="50" r="20" fill="#FFD700" fillOpacity="0.3" />
+              </svg>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-text">
+                <h4 class="gallery-title">Elegant Performance</h4>
+                <p class="gallery-desc">Eden showcasing her musical talents</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item card">
+          <div class="gallery-content">
+            <div class="gallery-pattern">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <defs>
+                  <pattern id="pattern2" patternUnits="userSpaceOnUse" width="20" height="20">
+                    <circle cx="10" cy="10" r="5" fill="#D495FF" fillOpacity="0.3" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern2)" />
+                <path d="M20 20L80 20L80 80L20 80L20 20Z" stroke="#FFD700" strokeWidth="2" fill="none" />
+                <path d="M35 50L65 50" stroke="#D495FF" strokeWidth="4" />
+                <path d="M50 35L50 65" stroke="#D495FF" strokeWidth="4" />
+              </svg>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-text">
+                <h4 class="gallery-title">Lightning Strike</h4>
+                <p class="gallery-desc">Eden channeling her lightning powers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item card">
+          <div class="gallery-content">
+            <div class="gallery-pattern">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <defs>
+                  <pattern id="pattern3" patternUnits="userSpaceOnUse" width="20" height="20">
+                    <path d="M0 0L20 0L20 20L0 20L0 0Z M5 5L5 15L15 15L15 5L5 5Z" fill="#D495FF" fillOpacity="0.3" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern3)" />
+                <circle cx="30" cy="30" r="10" fill="#FFD700" fillOpacity="0.3" />
+                <circle cx="70" cy="30" r="10" fill="#FFD700" fillOpacity="0.3" />
+                <circle cx="30" cy="70" r="10" fill="#FFD700" fillOpacity="0.3" />
+                <circle cx="70" cy="70" r="10" fill="#FFD700" fillOpacity="0.3" />
+                <circle cx="50" cy="50" r="15" fill="#D495FF" fillOpacity="0.4" />
+              </svg>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-text">
+                <h4 class="gallery-title">Among Friends</h4>
+                <p class="gallery-desc">Eden with her fellow Flame-Chasers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a 
+          href="https://honkaiimpact3.hoyoverse.com/global/en-us/media" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="gallery-link"
+        >
+          <span style="margin-right: 0.5rem;">View More Artwork</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Relationships Section -->
+  <section id="relationships" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="text-primary">Character</span> Relationships</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Explore Eden's connections with other characters in the Honkai Impact 3 universe.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 grid-cols-2">
+        <!-- Main Relationship 1 -->
+        <div class="relationship-card card">
+          <div class="relationship-header">
+            <div class="avatar">
+              <span>EL</span>
+            </div>
+            <div>
+              <h3 class="relationship-name">Elysia</h3>
+              <p class="relationship-type">Close Friend</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="mb-4 opacity-90">
+              Eden and Elysia shared a special bond as members of the Thirteen Flame-Chasers. Their friendship was characterized by mutual respect and understanding. Eden often played music for Elysia, who enjoyed her performances greatly.
+            </p>
+            <p class="opacity-90">
+              When they weren't fighting Honkai beasts, they could often be found spending time together, with Eden's calming music providing solace amidst the chaos of their world.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Main Relationship 2 -->
+        <div class="relationship-card card">
+          <div class="relationship-header">
+            <div class="avatar">
+              <span>MB</span>
+            </div>
+            <div>
+              <h3 class="relationship-name">Mobius</h3>
+              <p class="relationship-type">Complex Ally</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="mb-4 opacity-90">
+              Eden's relationship with Mobius was complex and sometimes strained. Despite Mobius's challenging personality and questionable experiments, Eden maintained a respectful relationship with her fellow Flame-Chaser.
+            </p>
+            <p class="opacity-90">
+              Eden was one of the few who could navigate Mobius's eccentric nature, often serving as a mediator between her and the other Flame-Chasers during conflicts.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Secondary Relationships -->
+      <div class="relationship-secondary">
+        <div class="grid grid-cols-1 grid-cols-3">
+          <!-- Secondary Relationship 1 -->
+          <div class="secondary-card card">
+            <div class="secondary-header">
+              <div class="secondary-avatar">
+                <span>KK</span>
+              </div>
+              <h3 class="relationship-name">Kevin Kaslana</h3>
+            </div>
+            <p class="text-sm opacity-90">
+              Eden respected Kevin as the leader of Fire Moth, though she occasionally questioned his increasingly extreme methods against the Honkai.
+            </p>
+          </div>
+          
+          <!-- Secondary Relationship 2 -->
+          <div class="secondary-card card">
+            <div class="secondary-header">
+              <div class="secondary-avatar">
+                <span>KL</span>
+              </div>
+              <h3 class="relationship-name">Kalpas</h3>
+            </div>
+            <p class="text-sm opacity-90">
+              Eden was one of the few who could calm Kalpas during his moments of rage, using her music to soothe his volatile nature.
+            </p>
+          </div>
+          
+          <!-- Secondary Relationship 3 -->
+          <div class="secondary-card card">
+            <div class="secondary-header">
+              <div class="secondary-avatar">
+                <span>AP</span>
+              </div>
+              <h3 class="relationship-name">Aponia</h3>
+            </div>
+            <p class="text-sm opacity-90">
+              Eden shared a mutual respect with Aponia, though they sometimes disagreed on matters of discipline and duty within the Flame-Chasers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    
+    <div class="container">
+      <div class="card cta-card">
+        <h2 class="cta-title">
+          Experience the World of <span class="text-primary">Honkai Impact 3</span>
+        </h2>
+        <p class="cta-text">
+          Download the game today to meet Eden and other fascinating characters in this epic action RPG.
+        </p>
+        
+        <a 
+          href="https://honkaiimpact3.hoyoverse.com/global/en-us/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="cta-btn"
+        >
+          <span style="margin-right: 0.5rem;">Official Website</span>
+          <span>→</span>
+        </a>
+        
+        <div class="cta-links">
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/news" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cta-link"
+          >
+            <div class="cta-link-icon">📰</div>
+            <div class="cta-link-text">Latest News</div>
+          </a>
+          
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/media" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cta-link"
+          >
+            <div class="cta-link-icon">🖼️</div>
+            <div class="cta-link-text">Media Gallery</div>
+          </a>
+          
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/news/game" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cta-link"
+          >
+            <div class="cta-link-icon">🎮</div>
+            <div class="cta-link-text">Game Updates</div>
+          </a>
+          
+          <a 
+            href="https://www.youtube.com/channel/UCko6H6LokKM__B03i5_vBQQ" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cta-link"
+          >
+            <div class="cta-link-icon">📺</div>
+            <div class="cta-link-text">Official Videos</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-info">
+          <h2 class="footer-title">
+            <span class="text-primary">Honkai</span>Impact 3
+          </h2>
+          <p class="footer-desc">
+            A character showcase fansite. All content belongs to HoYoverse.
+          </p>
+        </div>
+        
+        <div class="social-links">
+          <a 
+            href="https://www.facebook.com/HonkaiImpact3rd" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Visit Facebook"
+          >f</a>
+          <a 
+            href="https://twitter.com/HonkaiImpact3rd" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Visit Twitter"
+          >t</a>
+          <a 
+            href="https://www.instagram.com/honkaiimpact3rd/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Visit Instagram"
+          >i</a>
+          <a 
+            href="https://www.youtube.com/channel/UCko6H6LokKM__B03i5_vBQQ" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label="Visit YouTube"
+          >y</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright">
+          © 2023 Fan-created site. Not affiliated with HoYoverse.
+        </div>
+        <div class="footer-links">
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="footer-link"
+          >Official Site</a>
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/news" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="footer-link"
+          >News</a>
+          <a 
+            href="https://honkaiimpact3.hoyoverse.com/global/en-us/media" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="footer-link"
+          >Media</a>
+          <a 
+            href="https://www.hoyolab.com/accountCenter/postList?id=135470501" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="footer-link"
+          >Community</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+      });
+      
+      // Close menu when clicking on links
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-btn');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+          mobileMenu.classList.remove('open');
+        }
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
